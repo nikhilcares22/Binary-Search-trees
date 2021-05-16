@@ -52,5 +52,26 @@ class Bst {
         if(!found)return undefined;
         return current;
     }
+
+    BFS() {
+        let data = [],
+            node = this.root,
+            queue = [];
+
+        queue.push(node);
+        while (queue.length) {
+            node = queue.shift();
+            data.push(node.val);
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+        }
+        return data
+    }
 }
 let bst = new Bst()
+bst.insert(10)
+bst.insert(6)
+bst.insert(8)
+bst.insert(3)
+bst.insert(15)
+bst.insert(20)
