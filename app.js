@@ -67,6 +67,27 @@ class Bst {
         }
         return data
     }
+    DFSPreOrder() {
+        let data = [];
+        function traverse(node) {
+            data.push(node.val);
+            if (node.left) traverse(node.left);
+            if (node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return data;
+    }
+    DFSPostOrder() {
+        let data = [];
+        function traverse(node) {
+            if (node.left) traverse(node.left);
+            if (node.right) traverse(node.right);
+            data.push(node.val);
+        }
+        traverse(this.root);
+        return data;
+    }
+
 }
 let bst = new Bst()
 bst.insert(10)
@@ -74,4 +95,6 @@ bst.insert(6)
 bst.insert(8)
 bst.insert(3)
 bst.insert(15)
+bst.insert(13)
 bst.insert(20)
+let a = bst.DFSPostOrder()
