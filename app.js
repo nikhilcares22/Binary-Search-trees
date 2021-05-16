@@ -87,6 +87,16 @@ class Bst {
         traverse(this.root);
         return data;
     }
+    DFSInOrder() {
+        let data = []; //3  8
+        function traverse(node) {//10   6   8      
+            if (node.left) traverse(node.left);
+            data.push(node.val);
+            if (node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return data;
+    }
 
 }
 let bst = new Bst()
@@ -97,4 +107,11 @@ bst.insert(3)
 bst.insert(15)
 bst.insert(13)
 bst.insert(20)
-let a = bst.DFSPostOrder()
+bst.insert(9)
+let a = bst.DFSInOrder()
+console.log(a)
+
+    //         10
+    //    6         15
+    //  3   8     13   20
+    //        9
